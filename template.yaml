@@ -33,6 +33,9 @@ Resources:
       SubnetId: !Ref CafeSubnet
       SecurityGroupIds:
         - !Ref CafeSG
+      Tags:
+        - Key: Name
+          Value: noumanFromGit
       UserData:
         Fn::Base64: |
           #!/bin/bash
