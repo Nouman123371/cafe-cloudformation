@@ -29,7 +29,7 @@ Resources:
     Type: AWS::EC2::Instance
     Properties:
       InstanceType: t3.micro
-      ImageId: ami-0b46816ffa1234887
+      ImageId: ami-068c0051b15cdb816
       SubnetId: !Ref CafeSubnet
       SecurityGroupIds:
         - !Ref CafeSG
