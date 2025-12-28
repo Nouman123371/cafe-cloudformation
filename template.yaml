@@ -8,7 +8,7 @@ Resources:
       CidrBlock: 10.0.0.0/16
       Tags:
         - Key: Name
-          Value: Cafe-VPC
+          Value: 2Cafe-vpc
 
   CafeSubnet:
     Type: AWS::EC2::Subnet
@@ -18,7 +18,7 @@ Resources:
       MapPublicIpOnLaunch: true
       Tags:
         - Key: Name
-          Value: Cafe-Public-Subnet
+          Value: 2Cafe-Public-Subnet
 
   CafeSG:
     Type: AWS::EC2::SecurityGroup
@@ -32,7 +32,7 @@ Resources:
           CidrIp: 0.0.0.0/0
       Tags:
         - Key: Name
-          Value: Cafe-Web-SG
+          Value: 2Cafe-Web-SG
 
   CafeEC2:
     Type: AWS::EC2::Instance
@@ -44,7 +44,7 @@ Resources:
         - !Ref CafeSG
       Tags:
         - Key: Name
-          Value: gitUpdatedCafe-Web-EC2
+          Value: 2Cafe-Web-EC2
       UserData:
         Fn::Base64: |
           #!/bin/bash
