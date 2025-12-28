@@ -1,4 +1,4 @@
-AWSTemplateFormatVersion: '2010-09-09'
+AWSTemplateFormatVersion: "2010-09-09"
 Description: Cafe CloudFormation Stack
 
 Resources:
@@ -6,6 +6,9 @@ Resources:
     Type: AWS::EC2::VPC
     Properties:
       CidrBlock: 10.0.0.0/16
+      Tags:
+        - Key: Name
+          Value: Cafe-VPC
 
   CafeSubnet:
     Type: AWS::EC2::Subnet
@@ -13,6 +16,9 @@ Resources:
       VpcId: !Ref CafeVPC
       CidrBlock: 10.0.1.0/24
       MapPublicIpOnLaunch: true
+      Tags:
+        - Key: Name
+          Value: Cafe-Public-Subnet
 
   CafeSG:
     Type: AWS::EC2::SecurityGroup
@@ -24,6 +30,9 @@ Resources:
           FromPort: 80
           ToPort: 80
           CidrIp: 0.0.0.0/0
+      Tags:
+        - Key: Name
+          Value: Cafe-Web-SG
 
   CafeEC2:
     Type: AWS::EC2::Instance
@@ -35,7 +44,7 @@ Resources:
         - !Ref CafeSG
       Tags:
         - Key: Name
-          Value: noumanFromGit
+          Value: Cafe-Web-EC2
       UserData:
         Fn::Base64: |
           #!/bin/bash
